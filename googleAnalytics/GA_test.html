@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>GA測試站</title>
+    <script type="text/javascript" src="js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="js/GA_test.js"></script>
+    <script>
+        function pageOnload() {
+
+            googleAnalytics.handler.init();
+
+            if (googleAnalytics.handler.isInitComplete && googleAnalytics.handler.userID != undefined)
+                googleAnalytics.handler.create();
+            else
+                setTimeout(pageOnload, 100);
+        }
+
+        function changePageForGA(evt) {
+            debugger;
+            var btn_id = $(evt.target).attr("id");
+
+            switch (btn_id) {
+                case "btn_1":
+                    googleAnalytics.handler.setPage(["page1", "source", "ptt"]);
+                    break;
+                case "btn_2":
+                    googleAnalytics.handler.setPage(["page2"],"已轉到page2");
+                    break;
+                case "btn_3":
+                    googleAnalytics.handler.setPage(["page3"]);
+                    break;
+                case "btn_4":
+                    googleAnalytics.handler.setPage(["page4", "gaSource", "gaPtt"],"轉到page4~~");
+                    break;
+            }
+
+        }
+    </script>
+    </head>
+    <body style="text-align:center" onload="pageOnload()">
+        <span>我要測試GA阿~~~~</span>
+        <br/>
+        <span>我要測試GA阿~~~~</span>
+        <br />
+        <span>我要測試GA阿~~~~</span>
+        <br />
+        <span>我要測試GA阿~~~~</span>
+        <br />
+        <span>我要測試GA阿~~~~</span>
+        <br />
+        <span>我要測試GA阿~~~~</span>
+        <br />
+        <span>我要測試GA阿~~~~</span>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <button>測試GA EVENT 點擊</button>
+        <br />
+        <br />
+        <br />
+        <br />
+        <button id="btn_1" style="margin-right:20px" onclick="changePageForGA(event)">測試GA page 轉換</button>
+        <button id="btn_2" style="margin-right:20px" onclick="changePageForGA(event)">測試GA page 轉換</button>
+        <button id="btn_3" style="margin-right:20px" onclick="changePageForGA(event)">測試GA page 轉換</button>
+        <button id="btn_4" style="margin-right:20px" onclick="changePageForGA(event)">測試GA page 轉換</button>
+    </body>
+    </html>

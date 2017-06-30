@@ -1,0 +1,31 @@
+<html>
+<head>
+  <title>´ú¸ÕHtml</title>
+  <script src="js/jquery-1.8.2.min.js"></script>
+  <script>
+  $(document).ready(function(){
+
+	
+	debugger;
+	$("text1");
+	
+  
+  })
+  
+  function checkNum(e){
+		debugger;
+		var str = e.key;
+		if(str == "Backspace")
+			return true;
+		var re = new RegExp("^[0-9]*$");
+		
+		return re.test(str);
+	}
+  </script>
+</head>
+<body>
+	<label for="user_lic">Number of user license : </label>
+	<input id="text1" type="text" onkeypress="return checkNum(event)"/>  
+
+</body>
+</html>
